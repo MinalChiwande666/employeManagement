@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import EmployeeManagement from './components/EmployeeManagement/EmployeeManagement'
+import DrawerUI from './ui/Drawer/DrawerUI'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import AttendanceManagement from './components/AttendanceManagement/AttendanceManagement'
+import LeaveManageMent from './components/LeaveManageMenet/LeaveManageMent'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    {/* <DrawerUI>
+    <EmployeeManagement/>
+    </DrawerUI> */}
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<DrawerUI><EmployeeManagement/></DrawerUI>}/>
+      <Route path='/attendancemanagement' element={<DrawerUI><AttendanceManagement/></DrawerUI>}/>
+      <Route path='/leavemanagement' element={<DrawerUI><LeaveManageMent/></DrawerUI>}/>
+    </Routes>
+    </BrowserRouter>
+    </>
+  )
 }
 
-export default App;
+export default App
