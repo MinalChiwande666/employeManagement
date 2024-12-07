@@ -6,13 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import { AuthProvider } from './context/AuthContext';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-    <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </Provider>
   </React.StrictMode>
 );
